@@ -1,0 +1,25 @@
+group = 'org.tec'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springBootAdminVersion', "2.7.10")
+}
+
+dependencies {
+	implementation 'de.codecentric:spring-boot-admin-starter-server'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -1,0 +1,5 @@
+spring:
+  # TODO look into 
+  thymeleaf: 
+    check-template-location: false
+
