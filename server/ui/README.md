@@ -7,7 +7,7 @@
 - [vue.js](https://vuejs.org/)
 
 ## building (via root project tasks [from gradle npm](https://github.com/node-gradle/gradle-node-plugin/blob/master/docs/usage.md))
-- ./gradlew server:npmInstall
-- ./gradlew server:npm_run_build
+- ```./gradlew server:npmInstall```
+- ```./gradlew server:npm_run_build```
 
 
