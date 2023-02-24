@@ -28,3 +28,19 @@ dependencyManagement {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+graalvmNative {
+    binaries {
+        main {
+            imageName = 'tecClient'
+            mainClass = 'org.tec.adminClient.AdminClientApplication'
+ 
+            // dump stack if something goes wrong 
+            buildArgs.add('-H:+ReportExceptionStackTraces')
+            
+            // https://stackoverflow.com/questions/72770461/graalvm-native-image-can-not-compile-logback-dependencies
+            buildArgs.add('--initialize-at-build-time=ch.qos.logback,org.slf4j')
+            //useFatJar = true // Instead of passing each jar individually, builds a fat jar
+        }
+    }
+}

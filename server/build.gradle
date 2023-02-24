@@ -43,6 +43,22 @@ sourceSets {
     }
 }
 
+graalvmNative {
+    binaries {
+        main {
+            imageName = 'tecAdmin'
+            mainClass = 'org.tec.adminServer.AdminServerApplication'
+ 
+            // dump stack if something goes wrong 
+            buildArgs.add('-H:+ReportExceptionStackTraces')
+            
+            // https://stackoverflow.com/questions/72770461/graalvm-native-image-can-not-compile-logback-dependencies
+            buildArgs.add('--initialize-at-build-time=ch.qos.logback,org.slf4j')
+            //useFatJar = true // Instead of passing each jar individually, builds a fat jar
+        }
+    }
+}
+
 node {
     // Version of node to download and install (only used if download is true)
     // It will be unpacked in the workDir
