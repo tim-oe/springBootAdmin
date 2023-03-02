@@ -9,6 +9,9 @@ sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
+    maven {
+        url 'https://repo.spring.io/libs-release'
+    }
 }
 
 ext {
@@ -55,6 +58,9 @@ graalvmNative {
             // https://stackoverflow.com/questions/72770461/graalvm-native-image-can-not-compile-logback-dependencies
             buildArgs.add('--initialize-at-build-time=ch.qos.logback,org.slf4j')
             //useFatJar = true // Instead of passing each jar individually, builds a fat jar
+
+            jvmArgs.add('-Xms512m')
+            jvmArgs.add('-Xmx8g')
         }
     }
 }

@@ -9,8 +9,8 @@
 
 ## requirements
 - jdk 11
-    - installed via [SDKMan](https://sdkman.io/jdks#open)
-- [GraalVM 22.x.r11](https://www.graalvm.org/latest/docs/)
+    - installed via [SDKMan](https://sdkman.io/jdks#grl)
+- [GraalVM 22.3.r11](https://www.graalvm.org/latest/docs/)
     - installed via [SDKMan](https://sdkman.io/jdks#grl)
     - [gradle plugin](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
     - needs libz-dev ```sudo apt install -y libz-dev```

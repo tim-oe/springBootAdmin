@@ -2,7 +2,10 @@ plugins {
 	id 'java'
     // common plugins but don't apply at root
     id 'org.graalvm.buildtools.native' version '0.9.20'
-	id 'org.springframework.boot' version '2.7.8' apply false
+    // need to use this version as known to work
+    // ClassNotFoundException: org.springframework.boot.ApplicationServletEnvironment
+	id 'org.springframework.boot' version '2.7.1' apply false
+    id 'org.springframework.experimental.aot' version '0.12.1' apply false
 	id 'io.spring.dependency-management' version '1.1.0' apply false
 }
  
@@ -13,6 +16,7 @@ plugins {
  subprojects {
     apply plugin: "java"
     apply plugin: "org.springframework.boot"
+    apply plugin: "org.springframework.experimental.aot"
     apply plugin: "io.spring.dependency-management"
     apply plugin: "org.graalvm.buildtools.native"
     
@@ -21,13 +25,12 @@ plugins {
     }
 
     dependencies {
+        implementation 'org.springframework.experimental:spring-native:0.12.2'
+
 	    // Logging logback included by default
         implementation 'org.springframework.boot:spring-boot-starter-logging'
-	    implementation 'org.slf4j:slf4j-api:1.7.36'
-        //json log
-        implementation 'net.logstash.logback:logstash-logback-encoder:7.2'
 	    
-       // pojo annotaions processing
+        // pojo logger annotaions processing
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
 
