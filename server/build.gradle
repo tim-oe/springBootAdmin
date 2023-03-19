@@ -7,17 +7,6 @@ group = 'org.tec'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
-repositories {
-	mavenCentral()
-    maven {
-        url 'https://repo.spring.io/libs-release'
-    }
-}
-
-ext {
-	set('springBootAdminVersion', "3.0.0")
-}
-
 dependencies {
 	implementation 'de.codecentric:spring-boot-admin-starter-server'
 }
@@ -28,10 +17,13 @@ dependencyManagement {
 	}
 }
 
+//TODO should depend on bootjar?
 tasks.classes.dependsOn(npmInstall, npm_run_build)
 
 clean.doFirst {
     delete "${projectDir}/ui/target"
+    delete "${projectDir}/logs"
+    delete "${projectDir}/bin"
 }
 
 tasks.named('test') {
@@ -61,7 +53,6 @@ graalvmNative {
 
             jvmArgs.add('-Xms512m')
             jvmArgs.add('-Xmx8g')
-
         }
     }
 }

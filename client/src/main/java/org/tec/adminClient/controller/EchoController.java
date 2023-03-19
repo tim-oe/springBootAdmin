@@ -13,5 +13,4 @@ public class EchoController {
     public String echo(@RequestParam String value) {
         return value;
     }
-    
 }

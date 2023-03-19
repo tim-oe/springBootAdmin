@@ -1,14 +1,15 @@
+---
 server:
-  port : 8081
-
+  port: 8081
 spring:
+  application:
+    name: "poc-client"
   boot:
     admin:
       client:
-        url: http://localhost:8080
+        url: "http://localhost:8080"
         instance:
-          service-base-url: http://localhost:8081
- 
+          service-base-url: "http://localhost:8081"
 management:
   endpoints:
     web:
@@ -16,6 +17,6 @@ management:
         include: "*"
   endpoint:
     health:
-      show-details: ALWAYS
+      show-details: "ALWAYS"
     taskFactory:
-      enabled: true      
+      enabled: true

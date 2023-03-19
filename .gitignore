@@ -5,3 +5,7 @@
 build/
 bin/
 logs/
+
+# ui artifacts
+server/ui/node_modules/
+server/ui/target/
