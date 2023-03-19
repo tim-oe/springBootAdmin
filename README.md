@@ -24,8 +24,11 @@
 - [npm 8](https://www.npmjs.com/)
     - installed via [nodesource](https://github.com/nodesource/distributions)
 
-
 ## run demo
 - ```./gradlew server:bootRun```
 - ```./gradlew client:bootRun```
 - [access SBA](http://localhost:8080/applications)
+
+## TODO
+- jmx
+- terraform
